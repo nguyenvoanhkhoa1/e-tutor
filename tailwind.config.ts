@@ -1,4 +1,3 @@
-import { error } from "console"
 import type { Config } from "tailwindcss"
 
 const config: Config = {
@@ -79,6 +78,9 @@ const config: Config = {
           800: "#5B1B1B",
           900: "#2D0E0E",
         },
+      },
+      spacing: {
+        4.5: "1.125rem",
       },
     },
   },
