@@ -22,7 +22,7 @@ body {
 
 @layer components {
   .section-container {
-    @apply container mx-auto px-4 sm:px-6 xl:px-0 xl:max-w-5xl;
+    @apply container mx-auto px-4 sm:px-6 xl:px-0 xl:max-w-5xl 2xl:max-w-7xl;
   }
 
 
@@ -55,21 +55,6 @@ body {
   .heading-04 {
     @apply text-[24px] leading-[32px] font-semibold tracking-[-1%];
   }
-
-
-
-  .btn-lg {
-    @apply text-[18px] leading-[56px] font-semibold tracking-[-1%];
-  }
-
-  .btn-md {
-    @apply text-[16px] leading-[48px] font-semibold tracking-[-0.8%];
-  }
-
-  .btn-xs {
-    @apply text-[14px] leading-[40px] font-semibold tracking-[-0.4%];
-  }
-
 
 
 
