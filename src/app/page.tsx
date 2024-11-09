@@ -4,14 +4,28 @@ import Image from "next/image"
 import Link from "next/link"
 import {
   Bell,
+  BugDroid,
+  Camera,
   CaretDown,
+  ChartBarHorizontal,
+  Cpu,
+  CreditCard,
+  FirstAidKit,
+  Handshake,
+  Headphones,
   Heart,
   MagnifyingGlass,
+  MegaphoneSimple,
+  Package,
+  PenNib,
+  Receipt,
   ShoppingCartSimple,
 } from "@phosphor-icons/react"
 
 import Button from "@/components/ui/Button"
 import Typography from "@/components/ui/Typography"
+import CategoryCard, { CategoryCardProps } from "@/components/CategoryCard"
+import SimpleButton from "@/components/SimpleButton"
 
 export default function Home() {
   const TOP_BAR_LINKS = [
@@ -39,6 +53,81 @@ export default function Home() {
       label: "Become an Instructor",
       href: "#",
       isActive: false,
+    },
+  ]
+
+  const TOP_CATEGORIES: CategoryCardProps[] = [
+    {
+      icon: Cpu,
+      title: "Label",
+      description: "63,476 Courses",
+      variant: "secondary",
+    },
+    {
+      icon: Handshake,
+      title: "Business",
+      description: "52,822 Courses",
+      variant: "success",
+    },
+    {
+      icon: CreditCard,
+      title: "Finance & Accounting",
+      description: "33,841 Courses",
+      variant: "warning",
+    },
+    {
+      icon: ChartBarHorizontal,
+      title: "IT & Software",
+      description: "22,649 Courses",
+      variant: "error",
+    },
+    {
+      icon: BugDroid,
+      title: "Personal Development",
+      description: "20,126 Courses",
+      variant: "primary",
+    },
+    {
+      icon: Receipt,
+      title: "Office Productivity",
+      description: "13,932 Courses",
+      variant: "tertiary",
+    },
+    {
+      icon: MegaphoneSimple,
+      title: "Marketing",
+      description: "12,068 Courses",
+      variant: "secondary",
+    },
+    {
+      icon: Camera,
+      title: "Photography & Video",
+      description: "6,196 Courses",
+      variant: "tertiary",
+    },
+    {
+      icon: Package,
+      title: "Lifestyle",
+      description: "2,736 Courses",
+      variant: "warning",
+    },
+    {
+      icon: PenNib,
+      title: "Design",
+      description: "2,600 Courses",
+      variant: "error",
+    },
+    {
+      icon: FirstAidKit,
+      title: "Health & Fitness",
+      description: "1,678 Courses",
+      variant: "success",
+    },
+    {
+      icon: Headphones,
+      title: "Music",
+      description: "959 Courses",
+      variant: "warning",
     },
   ]
 
@@ -106,10 +195,10 @@ export default function Home() {
         </div>
       </header>
       <main>
-        <div>
+        <div className="relative bg-[#F0F2F5]">
           <section className="section-container">
             <div className="flex w-1/2 flex-col items-start gap-10 py-24">
-              <Typography variant="display-02">
+              <Typography variant="display-02" tag="h1">
                 Learn with expert anytime anywhere
               </Typography>
               <Typography variant="body-3xl-400" tag="p">
@@ -118,7 +207,29 @@ export default function Home() {
               </Typography>
               <Button size="lg">Create Account</Button>
             </div>
-            <Image src={""} alt={""}></Image>
+          </section>
+          <Image
+            src={"/assets/homepage/hero-image.png"}
+            alt={""}
+            width={900}
+            height={544}
+            className="absolute right-0 top-0 h-full w-auto"
+          />
+        </div>
+        <div>
+          <section className="section-container py-20">
+            <Typography variant="heading-02" tag="h2" className="text-center">
+              Browse top category
+            </Typography>
+            <div className="mt-10 grid grid-cols-4 gap-6">
+              {TOP_CATEGORIES.map((category) => (
+                <CategoryCard key={category.title} {...category} />
+              ))}
+            </div>
+            <div className="mt-10 flex items-center justify-center gap-3">
+              <Typography>We have more category & subcategory.</Typography>
+              <SimpleButton text="Browse All" variant="primary" />
+            </div>
           </section>
         </div>
       </main>
