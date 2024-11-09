@@ -27,6 +27,9 @@ import Typography from "@/components/ui/Typography"
 import { CategoryBadgeType } from "@/components/CategoryBadge"
 import CategoryCard, { CategoryCardProps } from "@/components/CategoryCard"
 import CourseCard, { CourseCardProps } from "@/components/CourseCard"
+import FeatureCourseCard, {
+  FeatureCourseCardProps,
+} from "@/components/FeatureCourseCard"
 import SimpleButton from "@/components/SimpleButton"
 
 export default function Home() {
@@ -186,6 +189,29 @@ export default function Home() {
     },
   ]
 
+  const FEATURE_COURSES: FeatureCourseCardProps[] = [
+    {
+      thumbnail: "/assets/homepage/course-image-4.png",
+      title: "Investing In Stocks The Complete Course! (17+ Hours)",
+      categoryBadge: CategoryBadgeType["Health & Fitness"],
+    },
+    {
+      thumbnail: "/assets/homepage/course-image-5.png",
+      title: "Google Analytics Certification | Prepare for Certification",
+      categoryBadge: CategoryBadgeType["Personal Development"],
+    },
+    {
+      thumbnail: "/assets/homepage/course-image-9.png",
+      title: "Adobe XD for Web Design: Essential Principles",
+      categoryBadge: CategoryBadgeType.Productivity,
+    },
+    {
+      thumbnail: "/assets/homepage/course-image-7.png",
+      title: "Python Mega Course: Learn Python in 60 Days, Build 20 Apps",
+      categoryBadge: CategoryBadgeType.Music,
+    },
+  ]
+
   return (
     <>
       <div
@@ -295,6 +321,24 @@ export default function Home() {
             <div className="mt-10 grid grid-cols-5 gap-6">
               {BEST_SELLING_COURSES.map((course) => (
                 <CourseCard key={course.title} {...course} />
+              ))}
+            </div>
+          </section>
+        </div>
+        <div>
+          <section className="section-container py-20">
+            <div className="flex items-center justify-between">
+              <Typography variant="heading-02" tag="h2">
+                Our feature courses
+              </Typography>
+              <Typography variant="body-md-400" className="w-96">
+                Our mision is to help people to find the best course online and
+                learn with expert anytime, anywhere.
+              </Typography>
+            </div>
+            <div className="mt-10 grid grid-cols-2 gap-6">
+              {FEATURE_COURSES.map((course) => (
+                <FeatureCourseCard key={course.title} {...course} />
               ))}
             </div>
           </section>

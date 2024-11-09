@@ -2,6 +2,7 @@ import React from "react"
 import { tv } from "tailwind-variants"
 
 const typography = tv({
+  base: "text-grayScale-900",
   variants: {
     variant: {
       "display-01":

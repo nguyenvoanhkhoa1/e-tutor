@@ -20,13 +20,13 @@ const categoryVariantMap: Record<CategoryBadgeType, BadgeProps["variant"]> = {
   [CategoryBadgeType.Design]: "primary",
   [CategoryBadgeType.Developments]: "secondary",
   [CategoryBadgeType.Business]: "success",
-  [CategoryBadgeType.Marketing]: "warning",
+  [CategoryBadgeType.Marketing]: "secondary",
   [CategoryBadgeType["IT & Software"]]: "error",
-  [CategoryBadgeType.Music]: "tertiary",
+  [CategoryBadgeType.Music]: "warning",
   [CategoryBadgeType["Health & Fitness"]]: "success",
-  [CategoryBadgeType.Lifestyle]: "primary",
-  [CategoryBadgeType["Personal Development"]]: "secondary",
-  [CategoryBadgeType.Productivity]: "warning",
+  [CategoryBadgeType.Lifestyle]: "warning",
+  [CategoryBadgeType["Personal Development"]]: "primary",
+  [CategoryBadgeType.Productivity]: "tertiary",
 }
 
 // Component that uses the mapping
