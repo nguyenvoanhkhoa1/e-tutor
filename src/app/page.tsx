@@ -24,7 +24,9 @@ import {
 
 import Button from "@/components/ui/Button"
 import Typography from "@/components/ui/Typography"
+import { CategoryBadgeType } from "@/components/CategoryBadge"
 import CategoryCard, { CategoryCardProps } from "@/components/CategoryCard"
+import CourseCard, { CourseCardProps } from "@/components/CourseCard"
 import SimpleButton from "@/components/SimpleButton"
 
 export default function Home() {
@@ -131,6 +133,59 @@ export default function Home() {
     },
   ]
 
+  const BEST_SELLING_COURSES: CourseCardProps[] = [
+    {
+      thumbnail: "/assets/homepage/course-image-1.png",
+      title: "Machine Learning A-Z™: Hands-On Python & R In Data Science",
+      categoryBadge: CategoryBadgeType.Design,
+    },
+    {
+      thumbnail: "/assets/homepage/course-image-2.png",
+      title: "The Complete 2021 Web Development Bootcamp",
+      categoryBadge: CategoryBadgeType.Developments,
+    },
+    {
+      thumbnail: "/assets/homepage/course-image-3.png",
+      title: "Learn Python Programming Masterclass",
+      categoryBadge: CategoryBadgeType.Business,
+    },
+    {
+      thumbnail: "/assets/homepage/course-image-4.png",
+      title: "The Complete Digital Marketing Course - 12 Courses in 1",
+      categoryBadge: CategoryBadgeType.Marketing,
+    },
+    {
+      thumbnail: "/assets/homepage/course-image-5.png",
+      title: "Reiki Level I, II and Master/Teacher Program",
+      categoryBadge: CategoryBadgeType["IT & Software"],
+    },
+    {
+      thumbnail: "/assets/homepage/course-image-6.png",
+      title: "The Complete Foundation Stock Trading Course",
+      categoryBadge: CategoryBadgeType.Music,
+    },
+    {
+      thumbnail: "/assets/homepage/course-image-7.png",
+      title: "Beginner to Pro in Excel: Financial Modeling and Valuation",
+      categoryBadge: CategoryBadgeType.Marketing,
+    },
+    {
+      thumbnail: "/assets/homepage/course-image-8.png",
+      title: "The Python Mega Course: Build 10 Real World Applications",
+      categoryBadge: CategoryBadgeType["Health & Fitness"],
+    },
+    {
+      thumbnail: "/assets/homepage/course-image-9.png",
+      title: "Copywriting - Become a Freelance Copywriter, your ow...",
+      categoryBadge: CategoryBadgeType.Design,
+    },
+    {
+      thumbnail: "/assets/homepage/course-image-10.png",
+      title: "Google Analytics Certification - Learn How To Pass The Exam",
+      categoryBadge: CategoryBadgeType.Lifestyle,
+    },
+  ]
+
   return (
     <>
       <div
@@ -207,14 +262,14 @@ export default function Home() {
               </Typography>
               <Button size="lg">Create Account</Button>
             </div>
+            <Image
+              src={"/assets/homepage/hero-image.png"}
+              alt={""}
+              width={900}
+              height={544}
+              className="absolute right-0 top-0 h-full w-auto"
+            />
           </section>
-          <Image
-            src={"/assets/homepage/hero-image.png"}
-            alt={""}
-            width={900}
-            height={544}
-            className="absolute right-0 top-0 h-full w-auto"
-          />
         </div>
         <div>
           <section className="section-container py-20">
@@ -229,6 +284,18 @@ export default function Home() {
             <div className="mt-10 flex items-center justify-center gap-3">
               <Typography>We have more category & subcategory.</Typography>
               <SimpleButton text="Browse All" variant="primary" />
+            </div>
+          </section>
+        </div>
+        <div className="bg-grayScale-50">
+          <section className="section-container py-20">
+            <Typography variant="heading-02" tag="h2" className="text-center">
+              Best selling courses
+            </Typography>
+            <div className="mt-10 grid grid-cols-5 gap-6">
+              {BEST_SELLING_COURSES.map((course) => (
+                <CourseCard key={course.title} {...course} />
+              ))}
             </div>
           </section>
         </div>

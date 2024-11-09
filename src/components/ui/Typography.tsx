@@ -40,6 +40,8 @@ const typography = tv({
       "body-xs-400": "text-[10px] font-normal leading-[10px]",
       "body-xs-500": "text-[10px] font-medium leading-[10px]",
       "body-xs-600": "text-[10px] font-semibold leading-[10px]",
+
+      "label-small": "text-[10px] font-medium leading-[12px]",
     },
   },
 })
