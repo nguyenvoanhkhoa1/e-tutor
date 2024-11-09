@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import {
+  ArrowRight,
   Bell,
   BugDroid,
   Camera,
@@ -27,6 +28,7 @@ import Typography from "@/components/ui/Typography"
 import { CategoryBadgeType } from "@/components/CategoryBadge"
 import CategoryCard, { CategoryCardProps } from "@/components/CategoryCard"
 import CourseCard, { CourseCardProps } from "@/components/CourseCard"
+import CourseCardDetailHover from "@/components/CourseCardDetailHover"
 import FeatureCourseCard, {
   FeatureCourseCardProps,
 } from "@/components/FeatureCourseCard"
@@ -212,6 +214,29 @@ export default function Home() {
     },
   ]
 
+  const RECENTLY_ADDED_COURSES: CourseCardProps[] = [
+    {
+      thumbnail: "/assets/homepage/course-image-11.png",
+      title: "The Python Mega Course: Build 10 Real World Applications",
+      categoryBadge: CategoryBadgeType["Health & Fitness"],
+    },
+    {
+      thumbnail: "/assets/homepage/course-image-5.png",
+      title: "TFacebook Ads & Facebook Marketing MASTERY 2021",
+      categoryBadge: CategoryBadgeType["IT & Software"],
+    },
+    {
+      thumbnail: "/assets/homepage/course-image-12.png",
+      title: "L2021 Complete Python Bootcamp From Zero to Hero in Python",
+      categoryBadge: CategoryBadgeType.Developments,
+    },
+    {
+      thumbnail: "/assets/homepage/course-image-13.png",
+      title: "How to get Diamond in soloQ | League of Legends | Season 11",
+      categoryBadge: CategoryBadgeType.Marketing,
+    },
+  ]
+
   return (
     <>
       <div
@@ -341,6 +366,25 @@ export default function Home() {
                 <FeatureCourseCard key={course.title} {...course} />
               ))}
             </div>
+          </section>
+        </div>
+        <div className="bg-grayScale-50">
+          <section className="section-container py-20">
+            <Typography variant="heading-02" tag="h2" className="text-center">
+              Recently added courses
+            </Typography>
+            <div className="mt-10 grid grid-cols-4 gap-6">
+              {RECENTLY_ADDED_COURSES.map((course) => (
+                <CourseCardDetailHover key={course.title} {...course} />
+              ))}
+            </div>
+            <Button
+              className="mx-auto mt-10"
+              variant="secondary"
+              rightIcon={ArrowRight}
+            >
+              Browse All Courses
+            </Button>
           </section>
         </div>
       </main>

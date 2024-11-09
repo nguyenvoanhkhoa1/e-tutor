@@ -10,7 +10,7 @@ const categoryCardStyles = tv({
     iconWrapper: "p-4",
 
     title: "font-semibold",
-    description: "text-sm text-gray-600",
+    description: "text-sm text-grayScale-600",
   },
   variants: {
     variant: {

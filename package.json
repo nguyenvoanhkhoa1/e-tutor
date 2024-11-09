@@ -11,6 +11,7 @@
   "dependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@phosphor-icons/react": "^2.1.7",
+    "@radix-ui/react-hover-card": "^1.1.2",
     "eslint-plugin-tailwindcss": "^3.17.5",
     "eslint-plugin-unused-imports": "^4.1.4",
     "next": "15.0.2",

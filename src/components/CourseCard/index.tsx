@@ -30,15 +30,15 @@ const CourseCard = ({ thumbnail, title, categoryBadge }: CourseCardProps) => {
         <div className="flex items-center justify-between p-3.5">
           <div className="flex items-center gap-1">
             <Star weight="fill" size={16} className="fill-warning-500" />
-            <Typography variant="body-md-500" className="text-gray-700">
+            <Typography variant="body-md-500" className="text-grayScale-700">
               5.0
             </Typography>
           </div>
           <div className="flex items-center gap-1">
-            <Typography variant="body-md-500" className="text-gray-700">
+            <Typography variant="body-md-500" className="text-grayScale-700">
               265.7K
             </Typography>{" "}
-            <Typography variant="body-md-400" className="text-gray-500">
+            <Typography variant="body-md-400" className="text-grayScale-500">
               students
             </Typography>
           </div>

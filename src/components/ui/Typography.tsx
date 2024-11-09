@@ -42,7 +42,9 @@ const typography = tv({
       "body-xs-500": "text-[10px] font-medium leading-[10px]",
       "body-xs-600": "text-[10px] font-semibold leading-[10px]",
 
-      "label-small": "text-[10px] font-medium leading-[12px]",
+      "label-lg": "text-[14px] font-medium leading-[14px]",
+      "label-md": "text-[12px] font-medium leading-[12px]",
+      "label-sm": "text-[10px] font-medium leading-[12px]",
     },
   },
 })

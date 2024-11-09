@@ -17,7 +17,7 @@ const FeatureCourseCard = ({
         alt={title}
         width={400}
         height={300}
-        className="h-full w-auto"
+        className="h-[205px] w-auto"
       />
       <div className="h-fit bg-white">
         <div className="flex flex-col border-b border-grayScale-100 px-6 py-4">
@@ -51,10 +51,10 @@ const FeatureCourseCard = ({
             </div>
             <div className="flex items-center gap-1">
               <Star weight="fill" size={16} className="fill-warning-500" />
-              <Typography variant="body-md-500" className="text-gray-700">
+              <Typography variant="body-md-500" className="text-grayScale-700">
                 5.0
               </Typography>
-              <Typography variant="body-md-400" className="text-gray-500">
+              <Typography variant="body-md-400" className="text-grayScale-500">
                 (357,914)
               </Typography>
             </div>
@@ -63,22 +63,22 @@ const FeatureCourseCard = ({
         <div className="flex items-center justify-between px-5 py-4">
           <div className="flex items-center gap-0.5">
             <User size={20} className="mr-1 fill-secondary-500" />
-            <Typography variant="body-md-500" className="text-gray-700">
+            <Typography variant="body-md-500" className="text-grayScale-700">
               265.7K
             </Typography>
-            <Typography variant="body-md-400" className="text-gray-500">
+            <Typography variant="body-md-400" className="text-grayScale-500">
               students
             </Typography>
           </div>
           <div className="flex items-center gap-1.5">
             <ChartBar size={20} className="fill-error-500" />
-            <Typography variant="body-md-400" className="text-gray-700">
+            <Typography variant="body-md-400" className="text-grayScale-700">
               Beginner
             </Typography>
           </div>
           <div className="flex items-center gap-1.5">
             <Clock size={20} className="fill-success-500" />
-            <Typography variant="body-md-400" className="text-gray-700">
+            <Typography variant="body-md-400" className="text-grayScale-700">
               6 hour
             </Typography>
           </div>

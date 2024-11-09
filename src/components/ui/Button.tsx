@@ -11,10 +11,11 @@ const Button = ({
   rightIcon: RightIcon,
   onClick,
   children,
+  fullWidth,
   ...props
 }: ButtonProps) => {
   const button = tv({
-    base: "flex items-center px-6 transition-all duration-300 ease-in-out hover:shadow-lg",
+    base: "flex items-center justify-center px-6 transition-all duration-300 ease-in-out hover:shadow-lg",
     variants: {
       size: {
         lg: "text-[18px] font-semibold leading-[56px] tracking-[-1%]",
@@ -57,11 +58,11 @@ const Button = ({
       className={button({
         size,
         "variant-theme": `${variant}-${theme}`,
-        className,
+        className: `${className} ${fullWidth ? "w-full" : ""}`,
       })}
       {...props}
     >
-      {LeftIcon && <LeftIcon className="mr-3" />}
+      {LeftIcon && <LeftIcon size={24} className="mr-3" />}
       {children}
       {RightIcon && <RightIcon className="ml-3" />}
     </button>
@@ -79,6 +80,7 @@ export interface ButtonProps {
   rightIcon?: Icon
   onClick?: () => void
   children?: React.ReactNode
+  fullWidth?: boolean
 
   [key: string]: any
 }

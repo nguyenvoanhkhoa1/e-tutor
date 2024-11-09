@@ -22,7 +22,7 @@ const badgeStyles = tv({
 const Badge = ({ text, variant, className }: BadgeProps) => {
   return (
     <div className={badgeStyles({ variant, className })}>
-      <Typography variant="label-small">{text}</Typography>
+      <Typography variant="label-sm">{text}</Typography>
     </div>
   )
 }
