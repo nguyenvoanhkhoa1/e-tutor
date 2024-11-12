@@ -12,6 +12,7 @@ import {
   Cpu,
   CreditCard,
   FirstAidKit,
+  GraduationCap,
   Handshake,
   Headphones,
   Heart,
@@ -278,6 +279,49 @@ export default function Home() {
     },
   ]
 
+  const COMPANY_LOGOS = [
+    {
+      name: "netflix",
+      width: 100,
+      height: 27,
+    },
+    {
+      name: "youtube",
+      width: 100,
+      height: 22,
+    },
+    {
+      name: "google",
+      width: 100,
+      height: 33,
+    },
+    {
+      name: "lenovo",
+      width: 100,
+      height: 21,
+    },
+    {
+      name: "slack",
+      width: 100,
+      height: 25,
+    },
+    {
+      name: "verizon",
+      width: 100,
+      height: 22,
+    },
+    {
+      name: "lexmark",
+      width: 100,
+      height: 20,
+    },
+    {
+      name: "microsoft",
+      width: 100,
+      height: 21,
+    },
+  ]
+
   return (
     <>
       <div
@@ -516,8 +560,93 @@ export default function Home() {
             </div>
           </section>
         </div>
+        <div>
+          <section className="section-container grid grid-cols-6 gap-6 py-20">
+            <div className="col-span-2 row-span-2 flex w-96 shrink-0 flex-col justify-center gap-6">
+              <Typography variant="heading-03">
+                6.3k trusted companies
+              </Typography>
+              <Typography variant="body-md-400" className="max-w-80">
+                Nullam egestas tellus at enim ornare tristique. Class aptent
+                taciti sociosqu ad litora torquent per conubia nostra.
+              </Typography>
+            </div>
+            {COMPANY_LOGOS.map((logo) => (
+              <div
+                key={logo.name}
+                className="flex h-24 w-full items-center justify-center bg-white drop-shadow-md"
+              >
+                <Image
+                  src={`/assets/homepage/${logo.name}.svg`}
+                  alt={""}
+                  width={logo.width}
+                  height={logo.height}
+                ></Image>
+              </div>
+            ))}
+          </section>
+        </div>
       </main>
-      <footer></footer>
+      <footer>
+        <div className="border-b border-grayScale-800/50 bg-grayScale-900">
+          <section className="section-container grid grid-cols-6 gap-6 py-24">
+            <div className="col-span-3">
+              <Typography variant="heading-02" className="text-white">
+                Start learning with 67.1k students around the world.
+              </Typography>
+              <div className="mt-8 flex gap-4">
+                <Button>Join the Family</Button>
+                <Button variant="primary" theme="gray" className="bg-white/5">
+                  Browse all courses
+                </Button>
+              </div>
+            </div>
+            <div className="flex flex-col justify-center gap-3">
+              <Typography variant="heading-02" className="text-white">
+                6.3k
+              </Typography>
+              <Typography variant="body-lg-500" className="text-grayScale-300">
+                Online courses
+              </Typography>
+            </div>
+            <div className="flex flex-col justify-center gap-3">
+              <Typography variant="heading-02" className="text-white">
+                26k
+              </Typography>
+              <Typography variant="body-lg-500" className="text-grayScale-300">
+                Certified Instructor
+              </Typography>
+            </div>
+            <div className="flex flex-col justify-center gap-3">
+              <Typography variant="heading-02" className="text-white">
+                99.9%
+              </Typography>
+              <Typography variant="body-lg-500" className="text-grayScale-300">
+                Sucess Rate
+              </Typography>
+            </div>
+          </section>
+        </div>
+        <div className="border-b border-grayScale-800/50 bg-grayScale-900">
+          <section className="section-container grid grid-cols-6 gap-6 py-20">
+            <div className="col-span-2">
+              <Link href={"/"} className="flex items-center gap-2.5">
+                <GraduationCap size={46} className="fill-primary-500" />
+                <div className="text-[36.8px] font-semibold leading-[45.6px] tracking-[-0.8px] text-white">
+                  E-tutor
+                </div>
+              </Link>
+              <Typography
+                variant="body-md-400"
+                className="mt-5 text-grayScale-500"
+              >
+                Aliquam rhoncus ligula est, non pulvinar elit convallis nec.
+                Donec mattis odio at.
+              </Typography>
+            </div>
+          </section>
+        </div>
+      </footer>
     </>
   )
 }
