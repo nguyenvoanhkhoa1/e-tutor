@@ -368,7 +368,7 @@ export default function Home() {
             </div>
           </section>
         </div>
-        <div className="bg-grayScale-50">
+        <div>
           <section className="section-container py-20">
             <Typography variant="heading-02" tag="h2" className="text-center">
               Recently added courses
@@ -385,6 +385,75 @@ export default function Home() {
             >
               Browse All Courses
             </Button>
+          </section>
+        </div>
+        <div className="bg-grayScale-50">
+          <section className="section-container grid grid-cols-2 gap-6 py-20">
+            <div className="relative overflow-hidden bg-gradient-to-r from-primary-600 to-primary-500 p-10">
+              <Typography variant="heading-03" tag="h3" className="text-white">
+                Become an instructor
+              </Typography>
+              <Typography
+                variant="body-md-400"
+                className="mt-3 max-w-80 text-white"
+              >
+                Instructors from around the world teach millions of students on
+                Udemy. We provide the tools and skills to teach what you love.
+              </Typography>
+              <Button
+                variant="secondary"
+                rightIcon={ArrowRight}
+                className="mt-6"
+              >
+                Start teaching
+              </Button>
+              <Image
+                src="/assets/homepage/instructor-bg.png"
+                alt=""
+                width={347}
+                height={524}
+                className="absolute right-[5%] top-0 h-auto w-56"
+              />
+            </div>
+            <div className="bg-white p-10">
+              <Typography variant="heading-03">
+                Your teaching & earning steps
+              </Typography>
+              <div className="mt-6 grid grid-cols-2 gap-5">
+                <div className="flex items-center gap-4">
+                  <div className="flex size-[52px] items-center justify-center rounded-full bg-secondary-100 text-2xl font-semibold text-secondary-500">
+                    1
+                  </div>
+                  <Typography variant="body-lg-400">
+                    Apply to become instructor
+                  </Typography>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="flex size-[52px] items-center justify-center rounded-full bg-primary-100 text-2xl font-semibold text-primary-500">
+                    2
+                  </div>
+                  <Typography variant="body-lg-400">
+                    Build & edit your profile
+                  </Typography>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="flex size-[52px] items-center justify-center rounded-full bg-error-100 text-2xl font-semibold text-error-500">
+                    3
+                  </div>
+                  <Typography variant="body-lg-400">
+                    Create your new course
+                  </Typography>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="flex size-[52px] items-center justify-center rounded-full bg-success-100 text-2xl font-semibold text-success-500">
+                    4
+                  </div>
+                  <Typography variant="body-lg-400">
+                    Start teaching & earning
+                  </Typography>
+                </div>
+              </div>
+            </div>
           </section>
         </div>
       </main>
