@@ -31,7 +31,9 @@ const SimpleButton = ({ text, variant = "primary" }: SimpleButtonProps) => {
   const iconColor = iconColors[variant]
   return (
     <button className={simpleButtonStyles({ variant })}>
-      <Typography variant="body-md-500">{text}</Typography>
+      <Typography variant="body-md-500" className={`text-[${iconColor}]`}>
+        {text}
+      </Typography>
       <ArrowRight size={24} color={iconColor} />
     </button>
   )

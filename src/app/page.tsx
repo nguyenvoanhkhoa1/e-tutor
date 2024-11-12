@@ -32,6 +32,9 @@ import CourseCardDetailHover from "@/components/CourseCardDetailHover"
 import FeatureCourseCard, {
   FeatureCourseCardProps,
 } from "@/components/FeatureCourseCard"
+import InstructorCard, {
+  InstructorCardProps,
+} from "@/components/InstructorCard"
 import SimpleButton from "@/components/SimpleButton"
 
 export default function Home() {
@@ -234,6 +237,44 @@ export default function Home() {
       thumbnail: "/assets/homepage/course-image-13.png",
       title: "How to get Diamond in soloQ | League of Legends | Season 11",
       categoryBadge: CategoryBadgeType.Marketing,
+    },
+  ]
+
+  const TOP_INSTRUCTORS: InstructorCardProps[] = [
+    {
+      avatar: "/assets/homepage/instructor-1.png",
+      name: "Devon Lane",
+      title: "Senior Developer",
+      rating: "4.6",
+      student: "854",
+    },
+    {
+      avatar: "/assets/homepage/instructor-2.png",
+      name: "Darrell Steward",
+      title: "Digital Product Designer",
+      rating: "4.9",
+      student: "451,444",
+    },
+    {
+      avatar: "/assets/homepage/instructor-3.png",
+      name: "Jane Cooper",
+      title: "UI/UX Designer",
+      rating: "4.8",
+      student: "435,671",
+    },
+    {
+      avatar: "/assets/homepage/instructor-4.png",
+      name: "Albert Flores",
+      title: "Adobe Instructor",
+      rating: "4.7",
+      student: "511,123",
+    },
+    {
+      avatar: "/assets/homepage/instructor-5.png",
+      name: "Kathryn Murphy",
+      title: "Lead Developer",
+      rating: "4.2",
+      student: "2,711",
     },
   ]
 
@@ -453,6 +494,25 @@ export default function Home() {
                   </Typography>
                 </div>
               </div>
+            </div>
+          </section>
+        </div>
+        <div>
+          <section className="section-container py-20">
+            <Typography variant="heading-02" tag="h2" className="text-center">
+              Top instructor of the month
+            </Typography>
+            <div className="mt-10 grid grid-cols-5 gap-6">
+              {TOP_INSTRUCTORS.map((category) => (
+                <InstructorCard key={category.title} {...category} />
+              ))}
+            </div>
+            <div className="mt-10 flex items-center justify-center gap-3">
+              <Typography>
+                Thousands of students waiting for a instructor. Start teaching &
+                earning now!.
+              </Typography>
+              <SimpleButton text="Become Instructor" variant="primary" />
             </div>
           </section>
         </div>

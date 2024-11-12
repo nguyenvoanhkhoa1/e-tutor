@@ -32,7 +32,7 @@ const CourseCardDetailHover = ({
             height={300}
             className="h-auto w-full"
           />
-          <div className="border border-grayScale-100 bg-white">
+          <div className="border border-t-0 border-grayScale-100 bg-white">
             <div className="flex flex-col gap-2.5 border-b border-grayScale-100 p-3.5">
               <div className="flex items-center justify-between">
                 <CategoryBadge category={categoryBadge} />
