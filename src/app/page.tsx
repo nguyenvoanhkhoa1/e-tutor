@@ -2,6 +2,13 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import AppleIcon from "@/assets/icons/AppleIcon"
+import FacebookIcon from "@/assets/icons/FacebookIcon"
+import GooglePlayIcon from "@/assets/icons/GooglePlayIcon"
+import InstagramIcon from "@/assets/icons/InstagramIcon"
+import LinkedinIcon from "@/assets/icons/LinkedinIcon"
+import TwitterIcon from "@/assets/icons/TwitterIcon"
+import YoutubeIcon from "@/assets/icons/YoutubeIcon"
 import {
   ArrowRight,
   Bell,
@@ -319,6 +326,36 @@ export default function Home() {
       name: "microsoft",
       width: 100,
       height: 21,
+    },
+  ]
+
+  const FOOTER_LINKS = [
+    {
+      title: "Top 4 Category",
+      links: [
+        { label: "Development", href: "#" },
+        { label: "Finance & Accounting", href: "#" },
+        { label: "Design", href: "#" },
+        { label: "Business", href: "#" },
+      ],
+    },
+    {
+      title: "Quick Links",
+      links: [
+        { label: "About", href: "#" },
+        { label: "Become Instructor", href: "#" },
+        { label: "Contact", href: "#" },
+        { label: "Career", href: "#" },
+      ],
+    },
+    {
+      title: "Support",
+      links: [
+        { label: "Help Center", href: "#" },
+        { label: "FAQs", href: "#" },
+        { label: "Terms & Condition", href: "#" },
+        { label: "Privacy Policy", href: "#" },
+      ],
     },
   ]
 
@@ -643,7 +680,102 @@ export default function Home() {
                 Aliquam rhoncus ligula est, non pulvinar elit convallis nec.
                 Donec mattis odio at.
               </Typography>
+              <div className="mt-6 flex gap-3">
+                <Link
+                  className="flex size-[46px] items-center justify-center bg-grayScale-800/40 hover:bg-primary-500"
+                  href={"/"}
+                >
+                  <FacebookIcon />
+                </Link>
+                <Link
+                  className="flex size-[46px] items-center justify-center bg-grayScale-800/40 hover:bg-primary-500"
+                  href={"/"}
+                >
+                  <InstagramIcon />
+                </Link>
+                <Link
+                  className="flex size-[46px] items-center justify-center bg-grayScale-800/40 hover:bg-primary-500"
+                  href={"/"}
+                >
+                  <LinkedinIcon />
+                </Link>
+                <Link
+                  className="flex size-[46px] items-center justify-center bg-grayScale-800/40 hover:bg-primary-500"
+                  href={"/"}
+                >
+                  <TwitterIcon />
+                </Link>
+                <Link
+                  className="flex size-[46px] items-center justify-center bg-grayScale-800/40 hover:bg-primary-500"
+                  href={"/"}
+                >
+                  <YoutubeIcon />
+                </Link>
+              </div>
             </div>
+            {FOOTER_LINKS.map((column) => (
+              <div key={column.title}>
+                <Typography variant="label-lg" className="text-white">
+                  {column.title}
+                </Typography>
+                <div className="mt-5 flex flex-col gap-1.5">
+                  {column.links.map((link) => (
+                    <Link key={link.label} href={link.href} className="py-1.5">
+                      <Typography
+                        variant="body-md-400"
+                        className="text-grayScale-500"
+                      >
+                        {link.label}
+                      </Typography>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+            <div>
+              <Typography variant="label-lg" className="text-white">
+                Download our app
+              </Typography>
+              <div className="mt-5 flex w-fit items-center gap-3.5 bg-grayScale-800/40 px-5 py-3">
+                <AppleIcon />
+                <div>
+                  <Typography
+                    variant="body-xs-400"
+                    className="text-grayScale-300"
+                  >
+                    Download now
+                  </Typography>
+                  <Typography variant="body-lg-500" className="text-white">
+                    App Store
+                  </Typography>
+                </div>
+              </div>
+              <div className="mt-5 flex w-fit items-center gap-3.5 bg-grayScale-800/40 px-5 py-3">
+                <GooglePlayIcon />
+                <div>
+                  <Typography
+                    variant="body-xs-400"
+                    className="text-grayScale-300"
+                  >
+                    Download now
+                  </Typography>
+                  <Typography variant="body-lg-500" className="text-white">
+                    App Store
+                  </Typography>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div className="bg-grayScale-900">
+          <section className="section-container py-6">
+            <Typography variant="body-md-400" className="text-grayScale-500">
+              © 2021 - Eduflex. Designed by{" "}
+              <Link href={"/"} className="text-white">
+                Templatecookie
+              </Link>
+              . All rights reserved
+            </Typography>
           </section>
         </div>
       </footer>
