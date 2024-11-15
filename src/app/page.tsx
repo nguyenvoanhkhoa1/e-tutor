@@ -30,6 +30,7 @@ import {
   Receipt,
   ShoppingCartSimple,
 } from "@phosphor-icons/react"
+import CountUp from "react-countup"
 
 import Button from "@/components/ui/Button"
 import Typography from "@/components/ui/Typography"
@@ -654,7 +655,19 @@ export default function Home() {
             </div>
             <div className="flex flex-col justify-center gap-3">
               <Typography variant="heading-02" className="text-white">
-                6.3k
+                <CountUp
+                  start={0}
+                  end={6.3}
+                  duration={2.75}
+                  decimals={1}
+                  decimal="."
+                  suffix="k"
+                  enableScrollSpy
+                  scrollSpyOnce={false}
+                  scrollSpyDelay={400}
+                >
+                  {({ countUpRef }) => <span ref={countUpRef} />}
+                </CountUp>
               </Typography>
               <Typography variant="body-lg-500" className="text-grayScale-300">
                 Online courses
@@ -662,7 +675,17 @@ export default function Home() {
             </div>
             <div className="flex flex-col justify-center gap-3">
               <Typography variant="heading-02" className="text-white">
-                26k
+                <CountUp
+                  start={0}
+                  end={26}
+                  duration={2.75}
+                  suffix="k"
+                  enableScrollSpy
+                  scrollSpyOnce={false}
+                  scrollSpyDelay={400}
+                >
+                  {({ countUpRef }) => <span ref={countUpRef} />}
+                </CountUp>
               </Typography>
               <Typography variant="body-lg-500" className="text-grayScale-300">
                 Certified Instructor
@@ -670,7 +693,19 @@ export default function Home() {
             </div>
             <div className="flex flex-col justify-center gap-3">
               <Typography variant="heading-02" className="text-white">
-                99.9%
+                <CountUp
+                  start={0}
+                  end={99.9}
+                  duration={2.75}
+                  decimals={1}
+                  decimal="."
+                  suffix="%"
+                  enableScrollSpy
+                  scrollSpyOnce={false}
+                  scrollSpyDelay={400}
+                >
+                  {({ countUpRef }) => <span ref={countUpRef} />}
+                </CountUp>
               </Typography>
               <Typography variant="body-lg-500" className="text-grayScale-300">
                 Sucess Rate
