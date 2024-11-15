@@ -716,9 +716,9 @@ export default function Home() {
         <div className="border-b border-grayScale-800/50 bg-grayScale-900">
           <section className="section-container grid grid-cols-6 gap-6 py-20">
             <div className="col-span-2">
-              <Link href={"/"} className="flex items-center gap-2.5">
+              <Link href={"/"} className="group flex items-center gap-2.5">
                 <GraduationCap size={46} className="fill-primary-500" />
-                <div className="text-[36.8px] font-semibold leading-[45.6px] tracking-[-0.8px] text-white">
+                <div className="text-[36.8px] font-semibold leading-[45.6px] tracking-[-0.8px] text-white transition-colors duration-300 ease-in-out group-hover:text-primary-500">
                   E-tutor
                 </div>
               </Link>
@@ -730,36 +730,21 @@ export default function Home() {
                 Donec mattis odio at.
               </Typography>
               <div className="mt-6 flex gap-3">
-                <Link
-                  className="flex size-[46px] items-center justify-center bg-grayScale-800/40 hover:bg-primary-500"
-                  href={"/"}
-                >
-                  <FacebookIcon />
-                </Link>
-                <Link
-                  className="flex size-[46px] items-center justify-center bg-grayScale-800/40 hover:bg-primary-500"
-                  href={"/"}
-                >
-                  <InstagramIcon />
-                </Link>
-                <Link
-                  className="flex size-[46px] items-center justify-center bg-grayScale-800/40 hover:bg-primary-500"
-                  href={"/"}
-                >
-                  <LinkedinIcon />
-                </Link>
-                <Link
-                  className="flex size-[46px] items-center justify-center bg-grayScale-800/40 hover:bg-primary-500"
-                  href={"/"}
-                >
-                  <TwitterIcon />
-                </Link>
-                <Link
-                  className="flex size-[46px] items-center justify-center bg-grayScale-800/40 hover:bg-primary-500"
-                  href={"/"}
-                >
-                  <YoutubeIcon />
-                </Link>
+                {[
+                  { href: "/", Icon: FacebookIcon },
+                  { href: "/", Icon: InstagramIcon },
+                  { href: "/", Icon: LinkedinIcon },
+                  { href: "/", Icon: TwitterIcon },
+                  { href: "/", Icon: YoutubeIcon },
+                ].map(({ href, Icon }, index) => (
+                  <Link
+                    key={index}
+                    className="flex size-[46px] items-center justify-center bg-grayScale-800/40 transition-colors duration-300 ease-in-out hover:bg-primary-500"
+                    href={href}
+                  >
+                    <Icon />
+                  </Link>
+                ))}
               </div>
             </div>
             {FOOTER_LINKS.map((column) => (
@@ -767,15 +752,23 @@ export default function Home() {
                 <Typography variant="label-lg" className="text-white">
                   {column.title}
                 </Typography>
-                <div className="mt-5 flex flex-col gap-1.5">
+                <div className="mt-5 flex flex-col items-start gap-1.5">
                   {column.links.map((link) => (
-                    <Link key={link.label} href={link.href} className="py-1.5">
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className="group relative flex items-center gap-3 py-1.5 before:absolute before:bottom-[-5px] before:left-0 before:h-0.5 before:w-0 before:bg-[#ff6636] before:transition-all before:duration-[0.3s] before:content-[''] hover:before:w-full"
+                    >
                       <Typography
                         variant="body-md-400"
-                        className="text-grayScale-500"
+                        className="text-grayScale-500 group-hover:text-white"
                       >
                         {link.label}
                       </Typography>
+                      <ArrowRight
+                        size={16}
+                        className="-translate-x-4 fill-white opacity-0 transition-all duration-300 ease-in-out group-hover:translate-x-0 group-hover:opacity-100"
+                      />
                     </Link>
                   ))}
                 </div>
