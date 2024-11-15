@@ -8,7 +8,7 @@ const typography = tv({
       "display-01":
         "text-[80px] font-semibold leading-[80px] tracking-[-1.6px]",
       "display-02":
-        "text-[72px] font-semibold leading-[74px] tracking-[-1.44px]",
+        "text-[65px] font-semibold leading-[67px] tracking-[-1.22px] 2xl:text-[72px] 2xl:leading-[74px] 2xl:tracking-[-1.44px]",
       "display-03":
         "text-[64px] font-semibold leading-[68px] tracking-[-1.28px]",
 

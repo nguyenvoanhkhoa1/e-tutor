@@ -31,6 +31,7 @@ import {
   ShoppingCartSimple,
 } from "@phosphor-icons/react"
 import CountUp from "react-countup"
+import { useMedia } from "react-use"
 
 import Button from "@/components/ui/Button"
 import Typography from "@/components/ui/Typography"
@@ -360,6 +361,8 @@ export default function Home() {
     },
   ]
 
+  const is2Xl = useMedia("(min-width: 1536px)", false)
+
   return (
     <>
       {/* <div
@@ -438,13 +441,17 @@ export default function Home() {
         </div>
       </header>
       <main>
-        <div className="relative bg-[#F0F2F5]">
+        <div className="relative overflow-hidden bg-[#F0F2F5]">
           <section className="section-container">
-            <div className="flex w-1/2 flex-col items-start gap-10 py-24">
+            <div className="flex w-[55%] flex-col items-start gap-8 py-20 2xl:gap-10 2xl:py-24">
               <Typography variant="display-02" tag="h1">
                 Learn with expert anytime anywhere
               </Typography>
-              <Typography variant="body-3xl-400" tag="p">
+              <Typography
+                variant="body-3xl-400"
+                tag="p"
+                className="max-w-[650px]"
+              >
                 Our mision is to help people to find the best course online and
                 learn with expert anytime, anywhere.
               </Typography>
@@ -455,7 +462,7 @@ export default function Home() {
               alt={""}
               width={900}
               height={544}
-              className="absolute right-0 top-0 h-full w-auto"
+              className="absolute left-[55%] top-0 h-full w-auto 2xl:left-1/2"
             />
           </section>
         </div>
@@ -464,7 +471,7 @@ export default function Home() {
             <Typography variant="heading-02" tag="h2" className="text-center">
               Browse top category
             </Typography>
-            <div className="mt-10 grid grid-cols-4 gap-6">
+            <div className="mt-10 grid grid-cols-3 gap-6 xl:grid-cols-4">
               {TOP_CATEGORIES.map((category) => (
                 <CategoryCard key={category.title} {...category} />
               ))}
@@ -480,8 +487,8 @@ export default function Home() {
             <Typography variant="heading-02" tag="h2" className="text-center">
               Best selling courses
             </Typography>
-            <div className="mt-10 grid grid-cols-5 gap-6">
-              {BEST_SELLING_COURSES.map((course) => (
+            <div className="mt-10 grid grid-cols-4 gap-6 2xl:grid-cols-5">
+              {BEST_SELLING_COURSES.slice(0, is2Xl ? 10 : 8).map((course) => (
                 <CourseCard key={course.title} {...course} />
               ))}
             </div>
