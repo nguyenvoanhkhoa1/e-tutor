@@ -7,14 +7,16 @@ import Typography from "../ui/Typography"
 
 const CourseCard = ({ thumbnail, title, categoryBadge }: CourseCardProps) => {
   return (
-    <div>
-      <Image
-        src={thumbnail}
-        alt={title}
-        width={400}
-        height={300}
-        className="h-auto w-full"
-      />
+    <div className="group cursor-pointer transition-all duration-300 ease-in-out hover:drop-shadow-md">
+      <div className="h-auto w-full overflow-hidden">
+        <Image
+          src={thumbnail}
+          alt={title}
+          width={400}
+          height={300}
+          className="h-auto w-full transition-all duration-300 ease-in-out group-hover:scale-110"
+        />
+      </div>
       <div className="bg-white">
         <div className="flex flex-col gap-2.5 border-b border-grayScale-100 p-3.5">
           <div className="flex items-center justify-between">
@@ -23,7 +25,10 @@ const CourseCard = ({ thumbnail, title, categoryBadge }: CourseCardProps) => {
               $57
             </Typography>
           </div>
-          <Typography variant="body-md-500" className="line-clamp-2">
+          <Typography
+            variant="body-md-500"
+            className="line-clamp-2 transition-colors duration-300 ease-in-out group-hover:text-primary-500"
+          >
             {title}
           </Typography>
         </div>

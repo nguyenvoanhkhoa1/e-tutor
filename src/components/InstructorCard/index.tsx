@@ -12,17 +12,24 @@ const InstructorCard = ({
   student,
 }: InstructorCardProps) => {
   return (
-    <div>
-      <Image
-        src={avatar}
-        alt={title}
-        width={400}
-        height={300}
-        className="h-auto w-full"
-      />
+    <div className="group cursor-pointer transition-all duration-300 ease-in-out hover:drop-shadow-md">
+      <div className="overflow-hidden">
+        <Image
+          src={avatar}
+          alt={title}
+          width={400}
+          height={300}
+          className="h-auto w-full transition-all duration-300 ease-in-out group-hover:scale-110"
+        />
+      </div>
       <div className="border border-t-0 border-grayScale-100 bg-white">
         <div className="flex flex-col gap-1 border-b border-grayScale-100 px-4 py-3 text-center">
-          <Typography variant="body-lg-500">{name}</Typography>
+          <Typography
+            variant="body-lg-500"
+            className="transition-colors duration-300 ease-in-out group-hover:text-primary-500"
+          >
+            {name}
+          </Typography>
           <Typography variant="body-md-400" className="text-grayScale-500">
             {title}
           </Typography>

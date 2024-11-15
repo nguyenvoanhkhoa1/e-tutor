@@ -103,7 +103,7 @@ export default function Home() {
       icon: BugDroid,
       title: "Personal Development",
       description: "20,126 Courses",
-      variant: "primary",
+      variant: "success",
     },
     {
       icon: Receipt,
@@ -361,7 +361,7 @@ export default function Home() {
 
   return (
     <>
-      <div
+      {/* <div
         id="#top-bar"
         className="flex items-center justify-between bg-grayScale-900 px-8"
       >
@@ -390,13 +390,13 @@ export default function Home() {
             <CaretDown size={12} className="fill-grayScale-400" />
           </div>
         </div>
-      </div>
-      <header className="flex items-center justify-between px-8 py-6">
+      </div> */}
+      <header className="sticky top-0 z-10 flex items-center justify-between bg-white px-8 py-6 drop-shadow-lg">
         <div className="flex items-center">
           <Link href={"/"} className="h-fit">
             <Image src={"/assets/logo.svg"} alt={""} width={153} height={40} />
           </Link>
-          <div className="body-lg-400 ms-[50px] flex w-[200px] items-center justify-between border border-grayScale-100 px-4.5 py-3 text-grayScale-700">
+          {/* <div className="body-lg-400 ms-[50px] flex w-[200px] items-center justify-between border border-grayScale-100 px-4.5 py-3 text-grayScale-700">
             Browse
             <CaretDown size={16} className="fill-grayScale-700" />
           </div>
@@ -410,12 +410,26 @@ export default function Home() {
               className="body-lg-400 flex w-96 items-center justify-between border border-grayScale-100 px-4.5 py-3 ps-14 text-grayScale-700 placeholder:text-grayScale-500 focus-within:outline-none"
               placeholder="What do you want learn..."
             />
-          </div>
+          </div> */}
         </div>
+        <nav className="flex gap-2">
+          {TOP_BAR_LINKS.map((link) => (
+            <Link key={link.label} href={link.href} className={`px-4 py-3`}>
+              <Typography
+                variant="body-lg-500"
+                className={`transition-colors duration-300 ease-in-out ${
+                  link.isActive ? "text-primary-500" : "hover:text-primary-500"
+                }`}
+              >
+                {link.label}
+              </Typography>
+            </Link>
+          ))}
+        </nav>
         <div className="flex items-center">
-          <Bell size={24} />
-          <Heart size={24} className="ml-6" />
-          <ShoppingCartSimple size={24} className="ml-6" />
+          <Bell size={24} className="cursor-pointer" />
+          <Heart size={24} className="ml-6 cursor-pointer" />
+          <ShoppingCartSimple size={24} className="ml-6 cursor-pointer" />
           <Button variant="secondary" theme="primary" className="ml-6">
             Create Account
           </Button>
@@ -611,7 +625,7 @@ export default function Home() {
             {COMPANY_LOGOS.map((logo) => (
               <div
                 key={logo.name}
-                className="flex h-24 w-full items-center justify-center bg-white drop-shadow-md"
+                className="flex h-24 w-full cursor-pointer items-center justify-center bg-white drop-shadow-sm transition-all duration-300 ease-in-out hover:drop-shadow-lg"
               >
                 <Image
                   src={`/assets/homepage/${logo.name}.svg`}

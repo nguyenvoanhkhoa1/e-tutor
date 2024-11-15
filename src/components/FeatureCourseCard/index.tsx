@@ -11,15 +11,17 @@ const FeatureCourseCard = ({
   categoryBadge,
 }: FeatureCourseCardProps) => {
   return (
-    <div className="flex border border-grayScale-100">
-      <Image
-        src={thumbnail}
-        alt={title}
-        width={400}
-        height={300}
-        className="h-[205px] w-auto"
-      />
-      <div className="h-fit bg-white">
+    <div className="group flex cursor-pointer border border-grayScale-100 transition-all duration-300 ease-in-out hover:drop-shadow-md">
+      <div className="h-auto w-[220px] shrink-0 overflow-hidden">
+        <Image
+          src={thumbnail}
+          alt={title}
+          width={400}
+          height={300}
+          className="h-full w-auto object-cover transition-all duration-300 ease-in-out group-hover:scale-110"
+        />
+      </div>
+      <div className="h-fit w-full bg-white">
         <div className="flex flex-col border-b border-grayScale-100 px-6 py-4">
           <div className="flex items-center justify-between">
             <CategoryBadge category={categoryBadge} />
@@ -33,7 +35,10 @@ const FeatureCourseCard = ({
               </Typography>
             </div>
           </div>
-          <Typography variant="body-md-500" className="mt-2 line-clamp-1">
+          <Typography
+            variant="body-md-500"
+            className="mt-2 line-clamp-1 transition-colors duration-300 ease-in-out group-hover:text-primary-500"
+          >
             {title}
           </Typography>
           <div className="mt-4 flex items-center justify-between">
