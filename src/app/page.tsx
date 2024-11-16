@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import AppleIcon from "@/assets/icons/AppleIcon"
@@ -23,16 +24,19 @@ import {
   Handshake,
   Headphones,
   Heart,
+  List,
   MagnifyingGlass,
   MegaphoneSimple,
   Package,
   PenNib,
   Receipt,
   ShoppingCartSimple,
+  X,
 } from "@phosphor-icons/react"
 import CountUp from "react-countup"
 import { useMedia } from "react-use"
 
+import useScrollStatus from "@/hooks/useScrollStatus"
 import Button from "@/components/ui/Button"
 import Typography from "@/components/ui/Typography"
 import { CategoryBadgeType } from "@/components/CategoryBadge"
@@ -361,7 +365,10 @@ export default function Home() {
     },
   ]
 
+  const { isAtTop, isAtBottom, scrollDirection } = useScrollStatus()
   const is2Xl = useMedia("(min-width: 1536px)", false)
+  const isLg = useMedia("(min-width: 1024px)", true)
+  const [openMobileMenu, setOpenMobileMenu] = useState(false)
 
   return (
     <>
@@ -395,7 +402,9 @@ export default function Home() {
           </div>
         </div>
       </div> */}
-      <header className="sticky top-0 z-10 flex items-center justify-between bg-white px-8 py-6 drop-shadow-lg">
+      <header
+        className={`sticky top-0 z-10 flex items-center justify-between bg-white px-8 drop-shadow-lg transition-all duration-300 ease-in-out ${isAtTop ? "py-8" : "py-4"}`}
+      >
         <div className="flex items-center">
           <Link href={"/"} className="h-fit">
             <Image src={"/assets/logo.svg"} alt={""} width={153} height={40} />
@@ -416,7 +425,7 @@ export default function Home() {
             />
           </div> */}
         </div>
-        <nav className="flex gap-2">
+        <nav className="hidden gap-2 lg:flex">
           {TOP_BAR_LINKS.map((link) => (
             <Link key={link.label} href={link.href} className={`px-4 py-3`}>
               <Typography
@@ -430,7 +439,7 @@ export default function Home() {
             </Link>
           ))}
         </nav>
-        <div className="flex items-center">
+        <div className="hidden items-center lg:flex">
           <Bell size={24} className="cursor-pointer" />
           <Heart size={24} className="ml-6 cursor-pointer" />
           <ShoppingCartSimple size={24} className="ml-6 cursor-pointer" />
@@ -439,11 +448,57 @@ export default function Home() {
           </Button>
           <Button className="ml-3">Sign In</Button>
         </div>
+        <button
+          className="flex size-12 items-center justify-center rounded-md transition-all duration-300 ease-in-out hover:shadow-lg lg:hidden"
+          onClick={() => setOpenMobileMenu(true)}
+        >
+          <List size={24} />
+        </button>
+        <div
+          className={`fixed left-0 top-0 block h-screen w-screen bg-black/90 transition-all duration-300 ease-in-out lg:hidden ${openMobileMenu ? "left-0" : "left-full"}`}
+        >
+          <div className={`px-8 ${isAtTop ? "py-8" : "py-4"}`}>
+            <button
+              className="top-4 float-end flex size-12 items-center justify-center transition-all duration-300 ease-in-out hover:shadow-lg"
+              onClick={() => setOpenMobileMenu(false)}
+            >
+              <X color="white" size={24} />
+            </button>
+            <div className="float-none mt-12 flex flex-col gap-2">
+              {TOP_BAR_LINKS.map((item, index) => (
+                <Link
+                  href={item.href}
+                  key={index}
+                  className="block py-4 text-center text-primary-500 transition-all duration-200 ease-in-out active:bg-primary-500 active:text-white"
+                  onClick={() =>
+                    setTimeout(() => {
+                      setOpenMobileMenu(false)
+                    }, 500)
+                  }
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <div className="flex flex-col items-center gap-6">
+                <Bell size={32} className="cursor-pointer fill-white" />
+                <Heart size={32} className="cursor-pointer fill-white" />
+                <ShoppingCartSimple
+                  size={32}
+                  className="cursor-pointer fill-white"
+                />
+                <Button variant="secondary" theme="primary">
+                  Create Account
+                </Button>
+                <Button>Sign In</Button>
+              </div>
+            </div>
+          </div>
+        </div>
       </header>
       <main>
         <div className="relative overflow-hidden bg-[#F0F2F5]">
           <section className="section-container">
-            <div className="flex w-[55%] flex-col items-start gap-8 py-20 2xl:gap-10 2xl:py-24">
+            <div className="flex w-full flex-col items-start gap-8 py-20 lg:w-[55%] 2xl:gap-10 2xl:py-24">
               <Typography variant="display-02" tag="h1">
                 Learn with expert anytime anywhere
               </Typography>
@@ -462,7 +517,7 @@ export default function Home() {
               alt={""}
               width={900}
               height={544}
-              className="absolute left-[55%] top-0 h-full w-auto 2xl:left-1/2"
+              className="left-[55%] top-0 block h-full w-auto lg:absolute 2xl:left-1/2"
             />
           </section>
         </div>
@@ -471,7 +526,7 @@ export default function Home() {
             <Typography variant="heading-02" tag="h2" className="text-center">
               Browse top category
             </Typography>
-            <div className="mt-10 grid grid-cols-3 gap-6 xl:grid-cols-4">
+            <div className="mt-10 grid grid-cols-2 gap-6 lg:grid-cols-3 xl:grid-cols-4">
               {TOP_CATEGORIES.map((category) => (
                 <CategoryCard key={category.title} {...category} />
               ))}
@@ -487,7 +542,7 @@ export default function Home() {
             <Typography variant="heading-02" tag="h2" className="text-center">
               Best selling courses
             </Typography>
-            <div className="mt-10 grid grid-cols-4 gap-6 2xl:grid-cols-5">
+            <div className="mt-10 grid grid-cols-2 gap-6 lg:grid-cols-4 2xl:grid-cols-5">
               {BEST_SELLING_COURSES.slice(0, is2Xl ? 10 : 8).map((course) => (
                 <CourseCard key={course.title} {...course} />
               ))}
@@ -505,7 +560,7 @@ export default function Home() {
                 learn with expert anytime, anywhere.
               </Typography>
             </div>
-            <div className="mt-10 grid grid-cols-2 gap-6">
+            <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
               {FEATURE_COURSES.map((course) => (
                 <FeatureCourseCard key={course.title} {...course} />
               ))}
@@ -517,7 +572,7 @@ export default function Home() {
             <Typography variant="heading-02" tag="h2" className="text-center">
               Recently added courses
             </Typography>
-            <div className="mt-10 grid grid-cols-4 gap-6">
+            <div className="mt-10 grid grid-cols-2 gap-6 lg:grid-cols-4">
               {RECENTLY_ADDED_COURSES.map((course) => (
                 <CourseCardDetailHover key={course.title} {...course} />
               ))}
@@ -532,7 +587,7 @@ export default function Home() {
           </section>
         </div>
         <div className="bg-grayScale-50">
-          <section className="section-container grid grid-cols-2 gap-6 py-20">
+          <section className="section-container grid grid-cols-1 gap-6 py-20 lg:grid-cols-2">
             <div className="relative overflow-hidden bg-gradient-to-r from-primary-600 to-primary-500 p-10">
               <Typography variant="heading-03" tag="h3" className="text-white">
                 Become an instructor
@@ -605,7 +660,7 @@ export default function Home() {
             <Typography variant="heading-02" tag="h2" className="text-center">
               Top instructor of the month
             </Typography>
-            <div className="mt-10 grid grid-cols-5 gap-6">
+            <div className="mt-10 grid grid-cols-2 gap-6 lg:grid-cols-5">
               {TOP_INSTRUCTORS.map((category) => (
                 <InstructorCard key={category.title} {...category} />
               ))}
@@ -620,8 +675,8 @@ export default function Home() {
           </section>
         </div>
         <div>
-          <section className="section-container grid grid-cols-6 gap-6 py-20">
-            <div className="col-span-2 row-span-2 flex w-96 shrink-0 flex-col justify-center gap-6">
+          <section className="section-container grid grid-cols-2 gap-6 py-20 lg:grid-cols-6">
+            <div className="col-span-2 row-span-2 flex shrink-0 flex-col items-center justify-center gap-6 lg:w-96 lg:items-start">
               <Typography variant="heading-03">
                 6.3k trusted companies
               </Typography>
@@ -648,7 +703,7 @@ export default function Home() {
       </main>
       <footer>
         <div className="border-b border-grayScale-800/50 bg-grayScale-900">
-          <section className="section-container grid grid-cols-6 gap-6 py-24">
+          <section className="section-container flex grid-cols-6 flex-col items-center gap-6 py-24 lg:grid">
             <div className="col-span-3">
               <Typography variant="heading-02" className="text-white">
                 Start learning with 67.1k students around the world.
@@ -721,7 +776,7 @@ export default function Home() {
           </section>
         </div>
         <div className="border-b border-grayScale-800/50 bg-grayScale-900">
-          <section className="section-container grid grid-cols-6 gap-6 py-20">
+          <section className="section-container grid grid-cols-2 gap-6 py-20 lg:grid-cols-6">
             <div className="col-span-2">
               <Link href={"/"} className="group flex items-center gap-2.5">
                 <GraduationCap size={46} className="fill-primary-500" />

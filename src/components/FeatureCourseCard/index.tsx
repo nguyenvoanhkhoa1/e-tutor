@@ -11,14 +11,14 @@ const FeatureCourseCard = ({
   categoryBadge,
 }: FeatureCourseCardProps) => {
   return (
-    <div className="group flex cursor-pointer border border-grayScale-100 transition-all duration-300 ease-in-out hover:drop-shadow-md">
-      <div className="h-auto w-[220px] shrink-0 overflow-hidden">
+    <div className="group flex cursor-pointer flex-col border border-grayScale-100 transition-all duration-300 ease-in-out hover:drop-shadow-md lg:flex-row">
+      <div className="h-auto w-full shrink-0 overflow-hidden lg:w-[220px]">
         <Image
           src={thumbnail}
           alt={title}
           width={400}
           height={300}
-          className="h-full w-auto object-cover transition-all duration-300 ease-in-out group-hover:scale-110"
+          className="h-auto w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-110 lg:h-full lg:w-auto"
         />
       </div>
       <div className="h-fit w-full bg-white">

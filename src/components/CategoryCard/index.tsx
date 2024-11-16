@@ -6,7 +6,7 @@ import Typography from "../ui/Typography"
 
 const categoryCardStyles = tv({
   slots: {
-    base: "group flex cursor-pointer items-center gap-5 p-5 transition-colors duration-300 ease-in-out hover:bg-white hover:drop-shadow-lg",
+    base: "group flex cursor-pointer flex-col items-center gap-5 p-5 transition-colors duration-300 ease-in-out hover:bg-white hover:drop-shadow-lg lg:flex-row",
     iconWrapper: "p-4 transition-colors duration-300 ease-in-out",
     icon: "transition-colors duration-300 ease-in-out",
 
