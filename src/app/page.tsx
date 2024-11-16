@@ -34,7 +34,7 @@ import {
   X,
 } from "@phosphor-icons/react"
 import CountUp from "react-countup"
-import { useMedia } from "react-use"
+import { useLockBodyScroll, useMedia } from "react-use"
 
 import useScrollStatus from "@/hooks/useScrollStatus"
 import Button from "@/components/ui/Button"
@@ -370,6 +370,8 @@ export default function Home() {
   const isLg = useMedia("(min-width: 1024px)", true)
   const [openMobileMenu, setOpenMobileMenu] = useState(false)
 
+  useLockBodyScroll(openMobileMenu)
+
   return (
     <>
       {/* <div
@@ -403,7 +405,7 @@ export default function Home() {
         </div>
       </div> */}
       <header
-        className={`sticky top-0 z-10 flex items-center justify-between bg-white px-8 drop-shadow-lg transition-all duration-300 ease-in-out ${isAtTop ? "py-8" : "py-4"}`}
+        className={`fixed top-0 z-10 flex w-full items-center justify-between bg-white px-8 drop-shadow-lg transition-all duration-300 ease-in-out ${isAtTop ? "py-8" : "py-4"}`}
       >
         <div className="flex items-center">
           <Link href={"/"} className="h-fit">
@@ -495,7 +497,7 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <main>
+      <main className="mt-28">
         <div className="relative overflow-hidden bg-[#F0F2F5]">
           <section className="section-container">
             <div className="flex w-full flex-col items-start gap-8 py-20 lg:w-[55%] 2xl:gap-10 2xl:py-24">
