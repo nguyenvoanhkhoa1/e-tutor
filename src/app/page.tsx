@@ -482,12 +482,14 @@ export default function Home() {
                 </Link>
               ))}
               <div className="flex flex-col items-center gap-6">
-                <Bell size={32} className="cursor-pointer fill-white" />
-                <Heart size={32} className="cursor-pointer fill-white" />
-                <ShoppingCartSimple
-                  size={32}
-                  className="cursor-pointer fill-white"
-                />
+                <div className="flex gap-6">
+                  <Bell size={32} className="cursor-pointer fill-white" />
+                  <Heart size={32} className="cursor-pointer fill-white" />
+                  <ShoppingCartSimple
+                    size={32}
+                    className="cursor-pointer fill-white"
+                  />
+                </div>
                 <Button variant="secondary" theme="primary">
                   Create Account
                 </Button>
@@ -613,14 +615,14 @@ export default function Home() {
                 alt=""
                 width={347}
                 height={524}
-                className="absolute right-[5%] top-0 h-auto w-56"
+                className="absolute right-[5%] top-0 hidden h-auto w-56 lg:block"
               />
             </div>
             <div className="bg-white p-10">
               <Typography variant="heading-03">
                 Your teaching & earning steps
               </Typography>
-              <div className="mt-6 grid grid-cols-2 gap-5">
+              <div className="mt-6 grid grid-cols-1 gap-5 lg:grid-cols-2">
                 <div className="flex items-center gap-4">
                   <div className="flex size-[52px] items-center justify-center rounded-full bg-secondary-100 text-2xl font-semibold text-secondary-500">
                     1

@@ -49,7 +49,7 @@ const CourseCardDetailHover = ({
                 {title}
               </Typography>
             </div>
-            <div className="flex items-center justify-between p-3.5">
+            <div className="flex flex-col items-center justify-between p-3.5 sm:flex-row">
               <div className="flex items-center gap-1">
                 <Star weight="fill" size={16} className="fill-warning-500" />
                 <Typography
